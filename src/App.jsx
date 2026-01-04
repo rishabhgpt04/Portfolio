@@ -227,7 +227,7 @@ export default function Portfolio() {
             {['About', 'Skills', 'Experience', 'Education', 'Projects'].map((item) => (
               <a 
                 key={item} 
-                href={`#${item.toLowerCase()}`}
+                href={item === 'About' ? '#home' : `#${item.toLowerCase()}`}
                 className="hover:text-blue-400 transition-colors"
               >
                 {item}
@@ -246,7 +246,7 @@ export default function Portfolio() {
       </nav>
 
       {/* Hero Section */}
-      <header id="home" className="pt-32 pb-20 px-6 max-w-5xl mx-auto">
+      <header id="home" className="pt-24 pb-12 px-6 max-w-5xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -275,6 +275,10 @@ export default function Portfolio() {
               <a href="https://www.linkedin.com/in/rishabhgpt26/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
                 <Linkedin className="w-5 h-5" /> LinkedIn
               </a>
+              <a href="https://leetcode.com/u/aceofspade1/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
+                <span aria-hidden="true" className="text-sm">🧩</span>
+                <span className="text-xs font-medium">LeetCode</span>
+              </a>
               <a href={`mailto:${portfolioData.profile.email}`} className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors">
                 <Mail className="w-5 h-5" /> Email
               </a>
@@ -286,7 +290,7 @@ export default function Portfolio() {
       
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 px-6 max-w-5xl mx-auto">
+      <section id="skills" className="py-12 px-6 max-w-5xl mx-auto">
         <SectionHeading icon={Terminal}>Technical Arsenal</SectionHeading>
         <div className="grid md:grid-cols-3 gap-6">
           <SkillCard title="Primary Stack" skills={portfolioData.skills.primary} delay={0} />
